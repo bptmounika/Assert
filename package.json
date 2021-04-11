@@ -1,0 +1,36 @@
+{
+    "name": "@colonise/assert",
+    "version": "0.0.0",
+    "description": "TODO",
+    "keywords": [],
+    "author": "Patrick Stanford",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Colonise/Assert.git"
+    },
+    "homepage": "https://github.com/Colonise/Assert#readme",
+    "bugs": {
+        "url": "https://github.com/Colonise/Assert/issues"
+    },
+    "main": "index.js",
+    "typings": "index.d.ts",
+    "files": [
+        "**/*.*"
+    ],
+    "scripts": {
+        "clean": "colonise-config clean",
+        "build": "colonise-config build",
+        "lint": "colonise-config lint",
+        "test": "colonise-config test",
+        "coverage": "colonise-config coverage",
+        "distribute": "colonise-config distribute"
+    },
+    "devDependencies": {
+        "@colonise/config": "latest"
+    },
+    "dependencies": {
+        "@colonise/utilities": "^6.5.3",
+        "tslib": "latest"
+    }
+}

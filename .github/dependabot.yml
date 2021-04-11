@@ -1,0 +1,32 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    target-branch: "master"
+    rebase-strategy: "auto"
+    open-pull-requests-limit: 10
+    pull-request-branch-name:
+      separator: "-"
+    versioning-strategy: "increase"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "chore"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    target-branch: "master"
+    rebase-strategy: "auto"
+    open-pull-requests-limit: 10
+    pull-request-branch-name:
+      separator: "-"
+    labels:
+      - "github-actions"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "chore"

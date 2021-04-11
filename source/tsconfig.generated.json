@@ -1,0 +1,25 @@
+{
+    "extends": "../tsconfig.json",
+    "files": [
+        "D:\\Github\\Colonise\\Assert\\source\\assert-defined.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-equal.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-false.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-falsey.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-in.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-instance-of.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-null.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-reject.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-resolve.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-return.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-strict-equal.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-throw.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-true.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-truthy.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-type-of.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert-undefined.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assert.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assertion-error.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\assertion-result.ts",
+        "D:\\Github\\Colonise\\Assert\\source\\index.ts"
+    ]
+}
