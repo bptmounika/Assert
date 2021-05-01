@@ -1,5 +1,13 @@
 Changelog
 
+## [1.0.2](https://github.com/Colonise/Assert/compare/v1.0.1...v1.0.2) (2021-05-01)
+
+
+### Bug Fixes
+
+* assertStrictEqual reason ([10ebf3b](https://github.com/Colonise/Assert/commit/10ebf3b914bfae36434db47de274133ff693e444))
+* properly handle reverse for functions and promises ([870d261](https://github.com/Colonise/Assert/commit/870d261e719f55609a26861cdbe884a04e0bb1d5))
+
 ## [1.0.1](https://github.com/Colonise/Assert/compare/v1.0.0...v1.0.1) (2021-04-24)
 
 
