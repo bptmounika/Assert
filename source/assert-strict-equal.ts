@@ -8,5 +8,5 @@ export function assertStrictEqual<TSubject, TExpected extends TSubject>(
     reverse: boolean
 ): AssertionResult<TSubject, TSubject, TExpected>;
 export function assertStrictEqual(subject: unknown, expected: unknown, reverse: boolean = false): AssertionResult<unknown, unknown, unknown> {
-    return assert(subject, subject, expected, subject === expected, 'Expected %subject% to %reverse=not %equal %expected%.', reverse);
+    return assert(subject, subject, expected, subject === expected, 'Expected %subject% to %reverse=not %stricly equal %expected%.', reverse);
 }
