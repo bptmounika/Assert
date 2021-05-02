@@ -1,5 +1,12 @@
 Changelog
 
+## [1.0.3](https://github.com/Colonise/Assert/compare/v1.0.2...v1.0.3) (2021-05-02)
+
+
+### Bug Fixes
+
+* actually export in, reject, resolve, return ([5f692be](https://github.com/Colonise/Assert/commit/5f692bee2f404df054a13b75b29b594e088c7df3))
+
 ## [1.0.2](https://github.com/Colonise/Assert/compare/v1.0.1...v1.0.2) (2021-05-01)
 
 
