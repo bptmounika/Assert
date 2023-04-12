@@ -1,15 +1,50 @@
----
-name: SO-023 Create folder
+name: build
 on:
   push:
     branches:
       - main
 jobs:
-  build:
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Create dir
+      - name: Checkout Repository
+        uses: actions/checkout@v2.3.4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 14
+      - name: Install dependencies
         run: |
-          mkdir mydirname
+          # Run NPM Clean Install
+          npm ci
+      - name: Run Linters
+        run: |
+          # Run NPM lint script
+          npm run lint
+  build:
+    name: Build
+    needs:
+      - lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - 12.x
+          - 13.x
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2.3.4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: |
+          # Run NPM Clean Install
+          npm ci
+      - name: Run Build
+        run: |
+          # Run NPM build script
+          npm run build
+
