@@ -13,12 +13,9 @@ jobs:
           - 12.x
     steps:
       - uses: actions/checkout@v2
-      - name: Create folder
-        run: >
-          mkdir -p myNewFolder/myNewSubFolder
-          myNewFolder/myNewSubFolder
-
-          ls myNewFolder/MyNewSubFolder
+        name: Create dir
+        run: |
+          mkdir mydirname
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
