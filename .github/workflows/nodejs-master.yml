@@ -1,8 +1,9 @@
-name: build
+---
+name: Node.js CI
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   lint:
     name: Lint
@@ -22,6 +23,9 @@ jobs:
         run: |
           # Run NPM lint script
           npm run lint
+      - name: Create dir
+        run: |
+          mkdir mydirname
   build:
     name: Build
     needs:
@@ -47,4 +51,83 @@ jobs:
         run: |
           # Run NPM build script
           npm run build
-
+  test:
+    name: Test
+    needs:
+      - lint
+      - build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: 12.x
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2.3.4
+      - name: Setup Node.js with ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: |
+          # Run NPM Clean Install
+          npm ci
+      - name: Run Unit Tests
+        run: |
+          # Run NPM test script
+          npm run test
+  coverage:
+    name: Test Coverage
+    needs:
+      - lint
+      - build
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2.3.4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: |
+          # Run NPM Clean Install
+          npm ci
+      - name: Run Test Coverage and Code Climate
+        uses: paambaati/codeclimate-action@v2.7.5
+        with:
+          coverageCommand: npm run coverage
+          debug: true
+  release:
+    name: Release
+    needs:
+      - lint
+      - build
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Build
+        run: npm run distribute
+      - name: Zip Build
+        run: zip -r build.zip ./distribute/
+        uses: actions/checkout@v2.3.4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: |
+          # Run NPM Clean Install
+          npm ci
+      - name: Run Build
+        run: |
+          # Run NPM build script
+          npm run build
