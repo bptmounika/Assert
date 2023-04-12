@@ -1,29 +1,16 @@
 ---
-name: Code junction build
+name: SO-023 Create folder
 on:
   push:
     branches:
-      - master
+      - main
+  workflow_dispatch: null
 jobs:
-  ubuntu-build:
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-          - 12.x
     steps:
-      - uses: actions/checkout@v2
-        name: Create dir
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create dir
         run: |
           mkdir mydirname
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build
-      - name: Zip Build
-        run: zip -r build.zip ./distribute/
-      - run: npm test
-        env:
-          CI: true
