@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Create folder
         run: >
-          mkdir -p myNewFolder/myNewSubFolder && cp -R dist
+          mkdir -p myNewFolder/myNewSubFolder
           myNewFolder/myNewSubFolder
 
           ls myNewFolder/MyNewSubFolder
